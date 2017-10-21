@@ -23,6 +23,17 @@ public class Application extends Controller {
         render();
     }
 
+    public static void results(){
+        if(thisFridge.getInventoryCount() != 0) {
+            thisFridge.sortInventoryByDate();
+        }
+        ArrayList<Food> products = thisFridge.getInventory();
+        for(int i = 0; i<products.size(); i++){
+            Food thisFood = products.get(i);
+        }
+        render(products);
+    }
+
     public static void addNew(String name, String date){
         int month, day, year;
 
@@ -35,12 +46,9 @@ public class Application extends Controller {
         home();
     }
 
-    public static void results(){
-        thisFridge.sortInventoryByDate();
-        ArrayList<Food> products = thisFridge.getInventory();
-        for(int i = 0; i<products.size(); i++){
-            Food thisFood = products.get(i);
-        }
-        render(products);
+    public static void delete(String name){
+        thisFridge.removeFood(name);
+        System.out.println(name);
+        results();
     }
 }
