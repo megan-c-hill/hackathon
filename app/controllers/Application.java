@@ -13,7 +13,7 @@ import java.util.Date;
 import java.time.LocalDateTime;
 
 public class Application extends Controller {
-    private static Fridge thisFridge = new Fridge();
+    private static FoodHolder thisFridge = new FoodHolder();
 
     public static void index() {
         render();
@@ -36,7 +36,8 @@ public class Application extends Controller {
     }
 
     public static void results(){
-        ArrayList<Food> products = thisFridge.getContents();
+        thisFridge.sortInventoryByDate();
+        ArrayList<Food> products = thisFridge.getInventory();
         for(int i = 0; i<products.size(); i++){
             Food thisFood = products.get(i);
         }

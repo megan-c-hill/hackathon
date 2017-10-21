@@ -18,6 +18,11 @@ public class Food {
 
     }
 
+    public Food(String foodName, LocalDate expirationDate){
+        this.foodName = foodName;
+        this.ExpirationDate = expirationDate;
+    }
+
     public String getFoodName() {
         return foodName;
     }
