@@ -30,20 +30,25 @@
     <![endif]-->
     <title>Home</title>
 </head>
-<body>
+<body style = "margin:10px">
 <h3>Input new food</h3>
 
 <form id = "form1" action = "/addNew">
-    <p>Name of Food</p>
-    <input type = "text" name = "name" id = "name">
-    <p>Expiration Date of Food (MM/DD/YYYY)</p>
-    <input type = "date" name = "date" id = "date">
+    <div class = "row">
+        <label style = "margin: 10px">Name of Food:</label>
+        <input type = "text" name = "name" id = "name">
+    </div>
+    <div class = "row">
+        <label style = "margin: 10px">Expiration Date of Food:</label>
+        <input type = "date" name = "date" id = "date">
+    </div>
 </form>
 
 <div class = "row">
-    <button class = "btn btn-success">Submit</button>
-    <button class = "btn btn-info" id = "switchButton">Switch to Other Page</button>
+    <button style = "margin-left: 10px" class = "btn btn-success">Submit</button>
+    <button  class = "btn btn-info" id = "switchButton">Switch to Other Page</button>
 </div>
+
 <script>
     document.getElementById("switchButton").addEventListener("click",switchPages);
     document.getElementById("submitButton").addEventListener("click", submitForm);
@@ -53,7 +58,7 @@
     }
     function submitForm(){
         document.getElementById("form1").submit();
-     }
+    }
 </script>
 </body>
 </html>
