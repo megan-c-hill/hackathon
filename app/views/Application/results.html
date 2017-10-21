@@ -19,6 +19,7 @@
     <link href="theme.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Gochi Hand' rel='stylesheet'>
     <link href= "../../public/stylesheets/results.css" rel = "stylesheet">
+    <link href = "../../public/stylesheets/font-awesome.css" rel = "stylesheet">
     <style>
     body {
         font-family: 'Gochi Hand';font-size: 22px;
@@ -32,10 +33,10 @@
 <ul class = "rolldown-list">
     #{list items:products, as:'product'}
     #{if product.isExpired()}
-        <li class="good">${product.getFoodName()}</li>
+        <li class="good">${product.getFoodName()}<i class = "fa fa-times" aria-hidden = "true"></i></li>
     #{/if}
     #{else}
-        <li class = "expired">${product.getFoodName()}</li>
+        <li class = "expired">${product.getFoodName()}<i class = "fa fa-times" aria-hidden = "true"></i></li>
     #{/else}
     #{/list}
 </ul>
