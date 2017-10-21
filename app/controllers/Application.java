@@ -11,13 +11,6 @@ import models.Food;
 import java.util.ArrayList;
 import java.util.Date;
 import java.time.LocalDateTime;
-//import java.time.LocalDate;
-//import java.time.format.DateTimeFormatter;
-//import java.text.SimpleDateFormat;
-//import java.text.DateFormat;
-//import java.util.Date;
-
-
 
 public class Application extends Controller {
     private ArrayList<Food> inventory = new ArrayList<>();
@@ -34,18 +27,15 @@ public class Application extends Controller {
         int month, day, year;
         String sMonth, sDay, sYear;
 
-        sMonth = date.substring(0,2);
-        sDay = date.substring(3,5);
-        sYear = date.substring(6);
+        sYear = date.substring(0,4);
+        sMonth = date.substring(5,7);
+        sDay = date.substring(8);
 
         month = Integer.parseInt(sMonth);
         day = Integer.parseInt(sDay);
         year = Integer.parseInt(sYear);
 
-        System.out.println(month + " " + day + " " + year);
         Food item = new Food(name, year, month, day);
-        //inventory.add(thisFood);
-
         home();
     }
 }
