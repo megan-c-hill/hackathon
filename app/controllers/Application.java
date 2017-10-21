@@ -35,6 +35,8 @@ public class Application extends Controller {
         day = Integer.parseInt(sDay);
         year = Integer.parseInt(sYear);
 
+        System.out.println(month + " " + day + " " + year);
+
         Food item = new Food(name, year, month, day);
         home();
     }

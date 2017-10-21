@@ -45,17 +45,14 @@
 </form>
 
 <div class = "row">
-    <button style = "margin-left: 10px" class = "btn btn-success">Submit</button>
-    <button  class = "btn btn-info" id = "switchButton">Switch to Other Page</button>
+    <button style = "margin-left: 10px" id = "submitButton" class = "btn btn-success">Submit</button>
+    <a href = "/results"><button  class = "btn btn-info" id = "switchButton">Switch to Other Page</button></a>
 </div>
 
 <script>
-    document.getElementById("switchButton").addEventListener("click",switchPages);
+
     document.getElementById("submitButton").addEventListener("click", submitForm);
 
-    function switchPages(){
-        document.getElementById("otherPageForm").submit();
-    }
     function submitForm(){
         document.getElementById("form1").submit();
     }
