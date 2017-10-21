@@ -9,14 +9,12 @@ public class Food {
     public String foodName;
     public LocalDate ExpirationDate;
     public boolean expired;
-    private LocalDate currentDate;
 
     public Food(String foodname, int year, int month, int day) {
 
         this.foodName = foodname;
         this.ExpirationDate = LocalDate.of(year, month, day);
         this.expired = false;
-        currentDate = LocalDate.now();
 
     }
 
@@ -37,7 +35,7 @@ public class Food {
     }
 
     public boolean isExpired() {
-
+        LocalDate currentDate = LocalDate.now();
         if (currentDate.isAfter(ExpirationDate)){
             expired = true;
         }

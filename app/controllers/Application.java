@@ -7,21 +7,18 @@ import java.util.*;
 
 import models.*;
 import models.Food;
-//import models.Fridge;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.time.LocalDateTime;
 
 public class Application extends Controller {
-    private ArrayList<Food> inventory = new ArrayList<>();
 
     public static void index() {
         render();
     }
 
     public static void home(){
-        //Render an object named products which is a Fridge
         render();
     }
 

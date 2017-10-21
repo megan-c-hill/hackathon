@@ -27,7 +27,20 @@
 </head>
 
 
-<body>
+<body background = "../../public/images/woodBackground.png">
+
+<!--<ul>
+    #{list items:products, as:'product'}
+        <li class="expired">${product}</li>
+    #{/list}
+</ul> -->
+
+<!--<ul>
+    #{list items:products, as:'product'}
+        <li class="good">${product}</li>
+    #{/list}
+</ul> -->
+
 <ul class="rolldown-list">
     <li class="expired">Chicken</li>
     <li class="expired">Milk</li>
@@ -43,22 +56,22 @@
 <a href = "/home"><button style = "margin-left: 45px" class = "btn btn-lg btn-default">Add more items to Fridge</button></a>
 
 <script>
-// Increments the delay on each item.
-$('.rolldown-list li').each(function () {
-  var delay = ($(this).index() / 4) + 's';
-  $(this).css({
-    webkitAnimationDelay: delay,
-    mozAnimationDelay: delay,
-    animationDelay: delay
+    // Increments the delay on each item.
+   $('.rolldown-list li').each(function () {
+     var delay = ($(this).index() / 4) + 's';
+     $(this).css({
+        webkitAnimationDelay: delay,
+        mozAnimationDelay: delay,
+        animationDelay: delay
+    });
   });
-});
 
-$('#btnReload').click(function () {
-  $('#myList').removeClass('rolldown-list');
-  setTimeout(function () {
-    $('#myList').addClass('rolldown-list');
-  }, 1);
-});
+  $('#btnReload').click(function () {
+    $('#myList').removeClass('rolldown-list');
+        setTimeout(function () {
+        $('#myList').addClass('rolldown-list');
+    }, 1);
+  });
 </script>
 
 </body>
