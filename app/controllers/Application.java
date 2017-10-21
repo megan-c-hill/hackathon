@@ -13,6 +13,7 @@ import java.util.Date;
 import java.time.LocalDateTime;
 
 public class Application extends Controller {
+    private static Fridge thisFridge = new Fridge();
 
     public static void index() {
         render();
@@ -32,12 +33,16 @@ public class Application extends Controller {
         System.out.println(month + " " + day + " " + year);
 
         Food item = new Food(name, year, month, day);
-        //Remember to add item to the fridge
+        thisFridge.add(item);
         home();
     }
 
     public static void results(){
-        //This will pass in a fridge
-        render();
+        ArrayList<Food> fridgeRes = thisFridge.getContents();
+        for(int i = 0; i<fridgeRes.size(); i++){
+            Food thisFood = fridgeRes.get(i);
+            System.out.println(thisFood.getFoodName());
+        }
+        render(thisFridge);
     }
 }
