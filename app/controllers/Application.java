@@ -29,7 +29,7 @@ public class Application extends Controller {
         DateTimeFormatter format = DateTimeFormatter.ofPattern("mm/dd/yyyy");
         LocalDateTime expiration = LocalDateTime.parse(date, format);
 
-        //Food item = new Food(name, expiration);
+        Food item = new Food(name, expiration);
         //inventory.add(thisFood);
 
         home();

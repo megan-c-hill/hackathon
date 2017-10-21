@@ -1,22 +1,22 @@
 package models;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.format.*;
 
 public class Food {
 
 
     public String foodName;
-    public LocalDateTime ExpirationDate;
+    public LocalDate ExpirationDate;
     public boolean expired;
-    private LocalDateTime currentDate;
+    private LocalDate currentDate;
 
-    public void Food(String foodname, LocalDateTime date) {
+    public Food(String foodname, int month, int day, int year) {
 
         this.foodName = foodname;
-        this.ExpirationDate = date;
+        this.ExpirationDate = LocalDate.of(year, month, day);
         this.expired = false;
-        currentDate = LocalDateTime.now();
+        currentDate = LocalDate.now();
 
     }
 
@@ -24,13 +24,13 @@ public class Food {
         return foodName;
     }
 
-    public LocalDateTime getExpirationDate() {
+    public LocalDate getExpirationDate() {
 
         return ExpirationDate;
 
     }
 
-    public void setExpirationDate(LocalDateTime newDate) {
+    public void setExpirationDate(LocalDate newDate) {
 
         this.ExpirationDate = newDate;
 
