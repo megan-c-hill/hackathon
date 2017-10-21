@@ -6,6 +6,7 @@
 GET     /                                       Application.index
 GET     /home                                   Application.home
 GET     /addNew                                 Application.addNew
+GET     /results                                Application.results
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

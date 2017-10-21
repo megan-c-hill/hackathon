@@ -38,4 +38,8 @@ public class Application extends Controller {
         Food item = new Food(name, year, month, day);
         home();
     }
+
+    public static void results(){
+        render();
+    }
 }
