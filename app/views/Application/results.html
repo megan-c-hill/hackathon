@@ -30,6 +30,7 @@
 
 <body background = "../../public/images/woodBackground.png">
 
+#{if products.size() != 0}
 <ul class = "rolldown-list">
     #{list items:products, as:'product'}
     #{if product.isExpired()}
@@ -40,6 +41,11 @@
     #{/else}
     #{/list}
 </ul>
+#{/if}
+
+#{else}
+    <p style = "color:#ffffff">To get started add something to your list</p>
+#{/else}
 
 <a href = "/home"><button style = "margin-left: 45px" class = "btn btn-lg btn-default">Add more items to your list</button></a>
 
