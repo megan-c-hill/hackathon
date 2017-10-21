@@ -5,6 +5,26 @@
     <title>Home</title>
 </head>
 <body>
-<h1>Welcome to our home page</h1>
+<h3>Input new food</h3>
+
+<form action = "/addNew">
+    <p>Name of Food</p>
+    <input type = "text" name = "name" id = "name">
+    <p>Expiration Date of Food</p>
+    <input type = "text" name = "expirationDate" id = "expirationDate">
+</form>
+<form></form>
+
+<button id = "switchButton">Switch to Other Page</button>
+
+<script>
+    document.getElementById("switchButton").addEventListener("click",switchPages)
+
+    function switchPages(){
+        document.getElementById("otherPageForm").submit;
+     }
+
+
+</script>
 </body>
 </html>
