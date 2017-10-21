@@ -21,15 +21,16 @@ public class Application extends Controller {
     }
 
     public static void home(){
+        //Render an object named products which is a Fridge
         render();
     }
 
     public static void addNew(String name, String date){
         int month, day, year;
 
+        year = Integer.parseInt(date.substring(0,4));
         month = Integer.parseInt(date.substring(5,7));
         day = Integer.parseInt(date.substring(8));
-        year = Integer.parseInt(date.substring(0,4));
 
         System.out.println(month + " " + day + " " + year);
 

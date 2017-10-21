@@ -12,29 +12,31 @@
     <link href="../../public/stylesheets/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap theme -->
     <link href="../../public/stylesheets/bootstrap-theme.min.css" rel="stylesheet">
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../../pubb/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="theme.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Gochi Hand' rel='stylesheet'>
     <title>Home</title>
     <style>
     body{
+        font-family: 'Gochi Hand';
+        font-size: 22px;
         background-color: #a97a57 ;
         color: #ffffff ;
+        margin-left: 30px ;
     }
     </style>
 </head>
-<body style = "margin:10px">
-<h3>Input new food</h3>
+<body>
+<h3>New Food</h3>
 
 <form id = "form1" action = "/addNew">
     <div class = "row">
         <label style = "margin: 10px">Name of Food:</label>
-        <input type = "text" style = "color: #030303" name = "name" id = "name">
+        <input type = "text" style = "color: #000000" name = "name" id = "name">
     </div>
     <div class = "row">
-        <label style = "margin: 10px">Expiration Date of Food:</label>
-        <input type = "date" style = "color: #030303" name = "date" id = "date">
+        <label style = "margin: 10px">Expiration Date:</label>
+        <input type = "date" style = "color: #000000" name = "date" id = "date">
     </div>
 </form>
 
