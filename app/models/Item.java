@@ -16,7 +16,7 @@ public class Item {
     public Item(String name, LocalDateTime expiration){
         this.name = name;
         this.expiration = expiration;
-        setExpired
+        setExpired();
     }
 
     private void setExpired(){
