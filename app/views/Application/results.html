@@ -1,10 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Results</title>
+    <title>Sort Your Fridge</title>
+    <link href='https://fonts.googleapis.com/css?family=Gochi Hand' rel='stylesheet'>
+    <link href= "../../public/stylesheets/results.css" rel = "stylesheet">
+    <style>
+    body {
+        font-family: 'Gochi Hand';font-size: 22px;
+    }
+    </style>
 </head>
+
+
 <body>
+<ul class="rolldown-list">
+    <li class="expired">Chicken</li>
+    <li class="expired">Milk</li>
+    <li class="expired">Grapes</li>
+</ul>
+
+<ul class="rolldown-list">
+    <li class="good">Butter</li>
+    <li class="good">Iced Tea</li>
+    <li class="good">Eggs</li>
+</ul>
+
+<script>
+    // Increments the delay on each item.
+$('.rolldown-list li').each(function () {
+  var delay = ($(this).index() / 4) + 's';
+  $(this).css({
+    webkitAnimationDelay: delay,
+    mozAnimationDelay: delay,
+    animationDelay: delay
+  });
+});
+
+$('#btnReload').click(function () {
+  $('#myList').removeClass('rolldown-list');
+  setTimeout(function () {
+    $('#myList').addClass('rolldown-list');
+  }, 1);
+});
+</script>
 
 </body>
+
+
 </html>

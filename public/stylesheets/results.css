@@ -1,0 +1,63 @@
+body{
+ background-color:  #a97a57;
+}
+
+ul{
+  list-style-type:none;
+}
+
+li{
+  font-size: 33px;
+  padding-left: 10px;
+  margin: 5px;
+  width: 50%;
+}
+
+.expired{
+  background: #f73333;
+  border-left: 6px solid #8e0e0e;
+}
+
+.good{
+    border-left: 6px solid green;
+    background: #50C878;
+}
+
+
+
+.rolldown-list {
+  text-align: left;
+
+  margin: 0;
+}
+
+.rolldown-list li {
+  padding: .6em;
+  margin-bottom: .3em;
+  display: block;
+  list-style: none;
+  text-transform: uppercase;
+}
+
+.rolldown-list li {
+  visibility: hidden;
+  animation: rolldown .7s 1;
+  transform-origin: 50% 0;
+  animation-fill-mode: forwards;
+}
+
+
+@keyframes rolldown {
+  0% {
+    visibility: visible;
+    transform: rotateX(180deg) perspective(500px);
+  }
+  70% {
+    visibility: visible;
+    transform: rotateX(-20deg);
+  }
+  100% {
+    visibility: visible;
+    transform: rotateX(0deg);
+  }
+}
