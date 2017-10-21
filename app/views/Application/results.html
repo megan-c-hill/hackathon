@@ -29,29 +29,17 @@
 
 <body background = "../../public/images/woodBackground.png">
 
-<!--<ul>
+<ul class = "rolldown-list">
     #{list items:products, as:'product'}
-        <li class="expired">${product}</li>
+    #{if product.isExpired()}
+        <li class="good">${product.getFoodName()}</li>
+    #{/if}
+    #{else}
+        <li class = "expired">${product.getFoodName()}</li>
+    #{/else}
     #{/list}
-</ul> -->
-
-<!--<ul>
-    #{list items:products, as:'product'}
-        <li class="good">${product}</li>
-    #{/list}
-</ul> -->
-
-<ul class="rolldown-list">
-    <li class="expired">Chicken</li>
-    <li class="expired">Milk</li>
-    <li class="expired">Grapes</li>
 </ul>
 
-<ul class="rolldown-list">
-    <li class="good">Butter</li>
-    <li class="good">Iced Tea</li>
-    <li class="good">Eggs</li>
-</ul>
 
 <a href = "/home"><button style = "margin-left: 45px" class = "btn btn-lg btn-default">Add more items to Fridge</button></a>
 

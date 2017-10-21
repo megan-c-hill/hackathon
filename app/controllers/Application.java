@@ -30,19 +30,16 @@ public class Application extends Controller {
         month = Integer.parseInt(date.substring(5,7));
         day = Integer.parseInt(date.substring(8));
 
-        System.out.println(month + " " + day + " " + year);
-
         Food item = new Food(name, year, month, day);
         thisFridge.add(item);
         home();
     }
 
     public static void results(){
-        ArrayList<Food> fridgeRes = thisFridge.getContents();
-        for(int i = 0; i<fridgeRes.size(); i++){
-            Food thisFood = fridgeRes.get(i);
-            System.out.println(thisFood.getFoodName());
+        ArrayList<Food> products = thisFridge.getContents();
+        for(int i = 0; i<products.size(); i++){
+            Food thisFood = products.get(i);
         }
-        render(thisFridge);
+        render(products);
     }
 }
