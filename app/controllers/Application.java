@@ -9,8 +9,14 @@ import models.*;
 import models.Food;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+//import java.time.LocalDate;
+//import java.time.format.DateTimeFormatter;
+//import java.text.SimpleDateFormat;
+//import java.text.DateFormat;
+//import java.util.Date;
+
 
 
 public class Application extends Controller {
@@ -25,11 +31,19 @@ public class Application extends Controller {
     }
 
     public static void addNew(String name, String date){
-        //Initialize a food item and add it to the inventory
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("mm/dd/yyyy");
-        LocalDateTime expiration = LocalDateTime.parse(date, format);
+        int month, day, year;
+        String sMonth, sDay, sYear;
 
-        Food item = new Food(name, expiration);
+        sMonth = date.substring(0,2);
+        sDay = date.substring(3,5);
+        sYear = date.substring(6);
+
+        month = Integer.parseInt(sMonth);
+        day = Integer.parseInt(sDay);
+        year = Integer.parseInt(sYear);
+
+        System.out.println(month + " " + day + " " + year);
+        Food item = new Food(name, year, month, day);
         //inventory.add(thisFood);
 
         home();

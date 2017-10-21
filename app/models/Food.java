@@ -11,7 +11,7 @@ public class Food {
     public boolean expired;
     private LocalDate currentDate;
 
-    public Food(String foodname, int month, int day, int year) {
+    public Food(String foodname, int year, int month, int day) {
 
         this.foodName = foodname;
         this.ExpirationDate = LocalDate.of(year, month, day);
