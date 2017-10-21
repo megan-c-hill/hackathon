@@ -14,7 +14,7 @@ public class Food {
 
         this.foodName = foodname;
         this.ExpirationDate = LocalDate.of(year, month, day);
-        this.expired = false;
+        this.expired = true;
 
     }
 
@@ -37,7 +37,7 @@ public class Food {
     public boolean isExpired() {
         LocalDate currentDate = LocalDate.now();
         if (currentDate.isAfter(ExpirationDate)){
-            expired = true;
+            expired = false;
         }
         return expired;
 
