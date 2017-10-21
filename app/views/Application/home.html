@@ -17,6 +17,12 @@
     <!-- Custom styles for this template -->
     <link href="theme.css" rel="stylesheet">
     <title>Home</title>
+    <style>
+    body{
+        background-color: #a97a57 ;
+        color: #ffffff ;
+    }
+    </style>
 </head>
 <body style = "margin:10px">
 <h3>Input new food</h3>
@@ -24,17 +30,17 @@
 <form id = "form1" action = "/addNew">
     <div class = "row">
         <label style = "margin: 10px">Name of Food:</label>
-        <input type = "text" name = "name" id = "name">
+        <input type = "text" style = "color: #030303" name = "name" id = "name">
     </div>
     <div class = "row">
         <label style = "margin: 10px">Expiration Date of Food:</label>
-        <input type = "date" name = "date" id = "date">
+        <input type = "date" style = "color: #030303" name = "date" id = "date">
     </div>
 </form>
 
 <div class = "row">
-    <button style = "margin-left: 10px" id = "submitButton" class = "btn btn-success">Add to Fridge</button>
-    <a href = "/results"><button class = "btn btn-info" id = "switchButton">See your fridge</button></a>
+    <button style = "margin-left: 10px" id = "submitButton" class = "btn btn-default">Add to Fridge</button>
+    <a href = "/results"><button class = "btn btn-default" id = "switchButton">See your fridge</button></a>
 </div>
 
 <script>
