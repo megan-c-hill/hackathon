@@ -48,7 +48,6 @@ public class Application extends Controller {
 
     public static void delete(String name){
         thisFridge.removeFood(name);
-        System.out.println(name);
         results();
     }
 }

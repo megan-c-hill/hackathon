@@ -33,15 +33,15 @@
 <ul class = "rolldown-list">
     #{list items:products, as:'product'}
     #{if product.isExpired()}
-        <li class="good">${product.getFoodName()}<a href = "/delete/${product.getFoodName()}"><i style = "float:right"  class = "fa fa-times" aria-hidden = "true"></i></a></li>
+        <li class="good">${product.getFoodName()}<a href = "/delete/${product.getFoodName()}"><i style = "float:right; color:#000000" class = "fa fa-times" aria-hidden = "true"></i></a></li>
     #{/if}
     #{else}
-        <li class = "expired">${product.getFoodName()}<a href = "/delete/${product.getFoodName()}"><i style = "float:right" class = "fa fa-times" aria-hidden = "true"></i></a></li>
+        <li class = "expired">${product.getFoodName()}<a href = "/delete/${product.getFoodName()}"><i style = "float:right; color:#000000" class = "fa fa-times" aria-hidden = "true"></i></a></li>
     #{/else}
     #{/list}
 </ul>
 
-<a href = "/home"><button style = "margin-left: 45px" class = "btn btn-lg btn-default">Add more items to Fridge</button></a>
+<a href = "/home"><button style = "margin-left: 45px" class = "btn btn-lg btn-default">Add more items to your list</button></a>
 
 <script>
     // Increments the delay on each item.
