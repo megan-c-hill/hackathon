@@ -13,8 +13,6 @@
     <link href="../../public/stylesheets/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap theme -->
     <link href="../../public/stylesheets/bootstrap-theme.min.css" rel="stylesheet">
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../../pubb/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="theme.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Gochi Hand' rel='stylesheet'>
@@ -41,13 +39,13 @@
     #{/else}
     #{/list}
 </ul>
+
+<a href = "/home"><button style = "margin-left: 45px" class = "btn btn-lg btn-default">Add more items to your list</button></a>
 #{/if}
 
 #{else}
-    <p style = "color:#ffffff">To get started add something to your list</p>
+    <p style = "color:#cccac9; margin:45px">To get started <a href = "/home" style = "color:#ffffff">add something</a> to your list</p>
 #{/else}
-
-<a href = "/home"><button style = "margin-left: 45px" class = "btn btn-lg btn-default">Add more items to your list</button></a>
 
 <script>
     // Increments the delay on each item.
