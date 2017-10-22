@@ -28,8 +28,9 @@
 </head>
 
 <body background = "../../public/images/woodBackground.png">
-    <div style = "margin:20px 10px 0px -30px" class = "alert alert-danger hidden" id = "dateWarning">Please enter a valid date<i style = "float:right; color:#dca7a7" id = "dateWarningClose" class = "fa fa-times" aria-hidden = "true"></i></div>
-    <div style = "margin:20px 10px 0px -30px" class = "alert alert-danger hidden" id = "nameWarning">Please enter a name for your item <i style = "float:right; color:#dca7a7" id = "nameWarningClose" class = "fa fa-times" aria-hidden = "true"></i></div>
+    <div style = "margin:20px 10px 0px -30px" class = "alert alert-danger hidden" id = "dateWarning">Please enter a valid date<i style = "float:right; color:#a94442" id = "dateWarningClose" class = "fa fa-times" aria-hidden = "true"></i></div>
+    <div style = "margin:20px 10px 0px -30px" class = "alert alert-danger hidden" id = "nameWarning">Please enter a name for your item <i style = "float:right; color:#a94442" id = "nameWarningClose" class = "fa fa-times" aria-hidden = "true"></i></div>
+    <div style = "margin:20px 10px 0px -30px" class = "alert alert-warning hidden" id = "confusedWarning">Enter a date for your item or <a href = "/results" style = "color:#8a6d3b"><u>click here</u></a> to view you list <i style = "float:right; color:#8a6d3b" id = "confusedWarningClose" class = "fa fa-times" aria-hidden = "true"></i> </div>
 
     <h1><u>Food</u></h1>
 
@@ -59,6 +60,7 @@
         document.getElementById("switchButton").addEventListener("click", switchPages);
         document.getElementById("dateWarningClose").addEventListener("click", closeDateWarning);
         document.getElementById("nameWarningClose").addEventListener("click", closeNameWarning);
+        document.getElementById("confusedWarningClose").addEventListener("click", closeConfusedWarning);
 
         function submitForm(){
             if(document.getElementById("form1").name.value){
@@ -76,9 +78,14 @@
 
         function switchPages(){
             if(document.getElementById("form1").name.value){
-                document.getElementById("form2").name.value = document.getElementById("form1").name.value;
-                document.getElementById("form2").date.value = document.getElementById("form1").date.value;
-                document.getElementById("form2").submit();
+                if(document.getElementById("form1").date.value){
+                    document.getElementById("form2").name.value = document.getElementById("form1").name.value;
+                    document.getElementById("form2").date.value = document.getElementById("form1").date.value;
+                    document.getElementById("form2").submit();
+                }
+                else{
+                    document.getElementById("confusedWarning").classList.remove("hidden");
+                }
             }
             else{
                 window.location.href = "/results"
@@ -91,6 +98,9 @@
 
         function closeNameWarning(){
             document.getElementById("nameWarning").classList.add("hidden");
+        }
+        function closeConfusedWarning(){
+            document.getElementById("confusedWarning").classList.add("hidden");
         }
     </script>
 </body>
