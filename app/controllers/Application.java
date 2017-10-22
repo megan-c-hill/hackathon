@@ -49,9 +49,6 @@ public class Application extends Controller {
     public static void listView(String name, String date){
         int month, day, year;
 
-        System.out.println("Reached Function");
-        System.out.println(name);
-
         year = Integer.parseInt(date.substring(0,4));
         month = Integer.parseInt(date.substring(5,7));
         day = Integer.parseInt(date.substring(8));

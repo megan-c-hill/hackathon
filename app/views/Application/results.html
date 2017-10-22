@@ -20,7 +20,8 @@
     <link href = "../../public/stylesheets/font-awesome.css" rel = "stylesheet">
     <style>
     body {
-        font-family: 'Gochi Hand';font-size: 22px;
+        font-family: 'Gochi Hand';
+        font-size: 22px;
     }
     </style>
 </head>
@@ -28,42 +29,43 @@
 
 <body background = "../../public/images/woodBackground.png">
 
-#{if products.size() != 0}
-<ul class = "rolldown-list">
-    #{list items:products, as:'product'}
-    #{if product.isExpired()}
-        <li class="good">${product.getFoodName()}<a href = "/delete/${product.getFoodName()}"><i style = "float:right; color:#000000" class = "fa fa-times" aria-hidden = "true"></i></a></li>
+    #{if products.size() != 0}
+        <ul class = "rolldown-list">
+            #{list items:products, as:'product'}
+                #{if product.isExpired()}
+                    <li class="good">${product.getFoodName()}<a href = "/delete/${product.getFoodName()}"><i style = "float:right; color:#000000" class = "fa fa-times" aria-hidden = "true"></i></a></li>
+                #{/if}
+                #{else}
+                    <li class = "expired">${product.getFoodName()}<a href = "/delete/${product.getFoodName()}"><i style = "float:right; color:#000000" class = "fa fa-times" aria-hidden = "true"></i></a></li>
+                #{/else}
+            #{/list}
+        </ul>
+
+        <a href = "/home"><button style = "margin-left: 45px" class = "btn btn-lg btn-default">Add more items to your list</button></a>
+
     #{/if}
+
     #{else}
-        <li class = "expired">${product.getFoodName()}<a href = "/delete/${product.getFoodName()}"><i style = "float:right; color:#000000" class = "fa fa-times" aria-hidden = "true"></i></a></li>
+        <p style = "color:#cccac9; margin:45px">To get started <a href = "/home" style = "color:#ffffff">add something</a> to your list</p>
     #{/else}
-    #{/list}
-</ul>
 
-<a href = "/home"><button style = "margin-left: 45px" class = "btn btn-lg btn-default">Add more items to your list</button></a>
-#{/if}
+    <script>
+        // Increments the delay on each item.
+        $('.rolldown-list li').each(function () {
+        var delay = ($(this).index() / 4) + 's';
+            $(this).css({
+                webkitAnimationDelay: delay,
+                mozAnimationDelay: delay,
+                animationDelay: delay
+            });
+        });
 
-#{else}
-    <p style = "color:#cccac9; margin:45px">To get started <a href = "/home" style = "color:#ffffff">add something</a> to your list</p>
-#{/else}
-
-<script>
-    // Increments the delay on each item.
-   $('.rolldown-list li').each(function () {
-     var delay = ($(this).index() / 4) + 's';
-     $(this).css({
-        webkitAnimationDelay: delay,
-        mozAnimationDelay: delay,
-        animationDelay: delay
-    });
-  });
-
-  $('#btnReload').click(function () {
-    $('#myList').removeClass('rolldown-list');
-        setTimeout(function () {
-        $('#myList').addClass('rolldown-list');
-    }, 1);
-  });
-</script>
+        $('#btnReload').click(function () {
+            $('#myList').removeClass('rolldown-list');
+                setTimeout(function () {
+                    $('#myList').addClass('rolldown-list');
+                }, 1);
+        });
+    </script>
 </body>
 </html>

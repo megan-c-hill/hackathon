@@ -26,71 +26,72 @@
     }
     </style>
 </head>
+
 <body background = "../../public/images/woodBackground.png">
-<div style = "margin:15px 15px 15px 0" class = "alert alert-danger hidden" id = "dateWarning">Please enter a valid date<i style = "float:right; color:#dca7a7" id = "dateWarningClose" class = "fa fa-times" aria-hidden = "true"></i></div>
-<div style = "margin:15px 15px 15px 0" class = "alert alert-danger hidden" id = "nameWarning">Please enter a name for your item <i style = "float:right; color:#dca7a7" id = "nameWarningClose" class = "fa fa-times" aria-hidden = "true"></i></div>
+    <div style = "margin:15px 15px 15px 0" class = "alert alert-danger hidden" id = "dateWarning">Please enter a valid date<i style = "float:right; color:#dca7a7" id = "dateWarningClose" class = "fa fa-times" aria-hidden = "true"></i></div>
+    <div style = "margin:15px 15px 15px 0" class = "alert alert-danger hidden" id = "nameWarning">Please enter a name for your item <i style = "float:right; color:#dca7a7" id = "nameWarningClose" class = "fa fa-times" aria-hidden = "true"></i></div>
 
-<h1><u>Food</u></h1>
-<form id = "form1" action = "/addNew">
+    <h1><u>Food</u></h1>
+
+    <form id = "form1" action = "/addNew">
+       <div class = "row">
+          <label style = "margin: 10px">Name:</label>
+          <input type = "text" style = "color: #000000" name = "name" id = "name">
+       </div>
+       <div class = "row">
+           <label style = "margin: 10px">Expiration Date:</label>
+           <input type = "date" style = "color: #000000" name = "date" id = "date">
+       </div>
+    </form>
+
     <div class = "row">
-        <label style = "margin: 10px">Name:</label>
-        <input type = "text" style = "color: #000000" name = "name" id = "name">
+        <button style = "margin:5px" id = "submitButton" class = "btn btn-lg btn-default">Add to List</button>
+        <button class = "btn btn-lg btn-default" id = "switchButton">See your List</button>
     </div>
-    <div class = "row">
-        <label style = "margin: 10px">Expiration Date:</label>
-        <input type = "date" style = "color: #000000" name = "date" id = "date">
-    </div>
-</form>
 
-<div class = "row">
-    <button style = "margin:5px" id = "submitButton" class = "btn btn-lg btn-default">Add to List</button>
-    <button class = "btn btn-lg btn-default" id = "switchButton">See your List</button>
-</div>
+    <form id = "form2" action = "/listView">
+        <input type = "text" name = "name" id = "name2" class = "hidden">
+        <input type = "date" name = "date" id = "date2" class = "hidden">
+    </form>
 
-<form id = "form2" action = "/listView">
-    <input type = "text" name = "name" id = "name2" class = "hidden">
-    <input type = "date" name = "date" id = "date2" class = "hidden">
-</form>
+    <script>
+        document.getElementById("submitButton").addEventListener("click", submitForm);
+        document.getElementById("switchButton").addEventListener("click", switchPages);
+        document.getElementById("dateWarningClose").addEventListener("click", closeDateWarning);
+        document.getElementById("nameWarningClose").addEventListener("click", closeNameWarning);
 
-<script>
-    document.getElementById("submitButton").addEventListener("click", submitForm);
-    document.getElementById("switchButton").addEventListener("click", switchPages);
-    document.getElementById("dateWarningClose").addEventListener("click", closeDateWarning);
-    document.getElementById("nameWarningClose").addEventListener("click", closeNameWarning);
-
-    function submitForm(){
-        if(document.getElementById("form1").name.value){
-            if(document.getElementById("form1").date.value){
-                document.getElementById("form1").submit();
+        function submitForm(){
+            if(document.getElementById("form1").name.value){
+                if(document.getElementById("form1").date.value){
+                    document.getElementById("form1").submit();
+                }
+                else{
+                    document.getElementById("dateWarning").classList.remove("hidden");
+                }
             }
             else{
-                document.getElementById("dateWarning").classList.remove("hidden");
-             }
+                document.getElementById("nameWarning").classList.remove("hidden");
+            }
         }
-        else{
-            document.getElementById("nameWarning").classList.remove("hidden");
+
+        function switchPages(){
+            if(document.getElementById("form1").name.value){
+                document.getElementById("form2").name.value = document.getElementById("form1").name.value;
+                document.getElementById("form2").date.value = document.getElementById("form1").date.value;
+                document.getElementById("form2").submit();
+            }
+            else{
+                window.location.href = "/results"
+            }
         }
-    }
 
-    function switchPages(){
-        if(document.getElementById("form1").name.value){
-            document.getElementById("form2").name.value = document.getElementById("form1").name.value;
-            document.getElementById("form2").date.value = document.getElementById("form1").date.value;
-            document.getElementById("form2").submit();
+        function closeDateWarning(){
+            document.getElementById("dateWarning").classList.add("hidden");
         }
-        else{
-            window.location.href = "/results"
+
+        function closeNameWarning(){
+            document.getElementById("nameWarning").classList.add("hidden");
         }
-    }
-
-    function closeDateWarning(){
-        document.getElementById("dateWarning").classList.add("hidden");
-    }
-
-    function closeNameWarning(){
-        document.getElementById("nameWarning").classList.add("hidden");
-    }
-
-</script>
+    </script>
 </body>
 </html>
