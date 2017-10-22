@@ -30,7 +30,7 @@
 <body background = "../../public/images/woodBackground.png">
 
     #{if products.size() != 0}
-        <ul class = "rolldown-list">
+        <ul class = "rolldown-list" style = "margin: 20px 0 20px 0">
             #{list items:products, as:'product'}
                 #{if product.isExpired()}
                     <li class="good">${product.getFoodName()}<a href = "/delete/${product.getFoodName()}"><i style = "float:right; color:#000000" class = "fa fa-times" aria-hidden = "true"></i></a></li>
